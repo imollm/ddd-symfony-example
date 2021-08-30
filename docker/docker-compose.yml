@@ -1,0 +1,36 @@
+version: '3.6'
+services:
+ api:
+  build: api
+  container_name: api
+  volumes:
+   - ../code:/var/www/html
+  links:
+   - db
+
+ nginx:
+  image: nginx:1.15.12
+  container_name: nginx
+  ports:
+   - '8080:80'
+  volumes:
+   - ../code:/var/www/html
+   - ./nginx/conf.d:/etc/nginx/conf.d
+   - ./nginx/log:/var/log/nginx
+  links:
+   - api
+
+ db:
+  image: mysql:8.0
+  container_name: db
+  restart: always
+  volumes:
+   - ./mysql/data:/var/lib/mysql
+  ports:
+   - '6033:3306'
+  environment:
+   - MYSQL_ROOT_PASSWORD=root.secret
+   - MYSQL_DATABASE=videolibrary
+   - MYSQL_USER=user
+   - MYSQL_PASSWORD=user.secret
+
