@@ -1,0 +1,9 @@
+api.getVideos:
+  path: /videos/get
+  controller: 'api.controller.videos.getVideos'
+  methods: [GET]
+
+api.createVideo:
+  path: /videos/create
+  controller: 'api.controller.videos.postVideo'
+  methods: [POST]

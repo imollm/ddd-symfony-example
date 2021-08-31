@@ -1,0 +1,4 @@
+services:
+  api.services.uuidIdStringGenerator:
+    class: Videolibrary\Api\Infrastructure\Service\UuidIdStringGenerator
+    public: true

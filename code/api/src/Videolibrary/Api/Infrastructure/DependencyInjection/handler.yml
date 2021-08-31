@@ -1,0 +1,13 @@
+services:
+  api.query.video.getVideosHandler:
+    class: Videolibrary\Api\Application\Query\Video\GetVideosHandler
+    arguments:
+      - '@api.repository.doctrineVideoRepository'
+    public: true
+
+  api.command.video.postVideoHandler:
+    class: Videolibrary\Api\Application\Command\Video\PostVideoHandler
+    arguments:
+      - '@api.repository.doctrineVideoRepository'
+      - '@api.services.uuidIdStringGenerator'
+    public: true

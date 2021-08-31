@@ -1,0 +1,12 @@
+services:
+  api.controller.videos.getVideos:
+    class: Videolibrary\Api\Infrastructure\Ui\Http\Controller\Videos\GetVideosController
+    arguments:
+      - '@api.query.video.getVideosHandler'
+    public: true
+
+  api.controller.videos.postVideo:
+    class: Videolibrary\Api\Infrastructure\Ui\Http\Controller\Videos\PostVideoController
+    arguments:
+      - '@api.command.video.postVideoHandler'
+    public: true
